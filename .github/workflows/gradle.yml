@@ -60,3 +60,4 @@ jobs:
       if: success() || failure()    # run this step even if previous step failed
       with:
         report_paths: '**/build/test-results/test/TEST-*.xml'
+        token: ${{ github.token }}
