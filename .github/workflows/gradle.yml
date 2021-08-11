@@ -54,10 +54,3 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
-
-    - name: Publish Test Report
-      uses: mikepenz/action-junit-report@v2
-      if: success() || failure()    # run this step even if previous step failed
-      with:
-        report_paths: '**/build/test-results/test/TEST-*.xml'
-        token: ${{ github.token }}
