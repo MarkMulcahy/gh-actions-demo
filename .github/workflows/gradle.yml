@@ -55,8 +55,8 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
 
-    - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v1
+    - name: Publish Test Report
+      uses: mikepenz/action-junit-report@v2
       if: success() || failure()    # run this step even if previous step failed
       with:
-        files: build/test-results/*/*.xml
+        report_paths: '**/build/test-results/test/TEST-*.xml'
